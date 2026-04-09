@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0F0A1A;
+  --fg: #F5F5F7;
+  --pink: #FF6B9D;
+  --purple: #C084FC;
+  --cyan: #22D3EE;
+  --orange: #FB923C;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-brand-pink: var(--pink);
+  --color-brand-purple: var(--purple);
+  --color-brand-cyan: var(--cyan);
+  --color-brand-orange: var(--orange);
+  --color-brand-dark: #0F0A1A;
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body, sans-serif);
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--purple);
+  color: white;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--pink), var(--purple), var(--cyan));
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: rgba(15, 10, 26, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}

@@ -11,12 +11,13 @@ export function BioCard() {
           whileHover={{ scale: 1.03 }}
           className="mx-auto w-60 h-60 md:w-72 md:h-72 rounded-2xl bg-gradient-to-br from-brand-pink via-brand-purple to-brand-cyan p-[3px]"
         >
-          <div className="w-full h-full rounded-2xl overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+          <div className="relative w-full h-full rounded-2xl overflow-hidden">
+            <Image
               src="/images/about/Self-portrait/8a35577dce5df4d7474dcc47d06a5eb1.jpg"
               alt="Huaiyue Peng"
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width: 767px) 240px, 288px"
+              className="object-cover"
             />
           </div>
         </motion.div>

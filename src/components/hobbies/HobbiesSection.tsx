@@ -1,7 +1,7 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GradientBlob } from "@/components/ui/GradientBlob";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -83,10 +83,12 @@ function HobbyCard({
         {/* Preview image or gradient */}
         <div className="relative h-40 overflow-hidden">
           {hobby.images.length > 0 ? (
-            <img
+            <Image
               src={hobby.images[0]}
               alt={hobby.title}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              fill
+              sizes="(max-width: 767px) calc(100vw - 3rem), 500px"
+              className="object-cover group-hover:scale-110 transition-transform duration-500"
             />
           ) : (
             <div
@@ -194,10 +196,12 @@ export function HobbiesSection() {
                     transition={{ delay: i * 0.08 }}
                     className="relative aspect-[4/3] rounded-xl overflow-hidden bg-white/5 border border-white/10"
                   >
-                    <img
+                    <Image
                       src={src}
                       alt={`${hobbies[expanded].title} ${i + 1}`}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 767px) 50vw, 288px"
+                      className="object-cover"
                     />
                   </motion.div>
                 ))}

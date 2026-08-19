@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
-/* eslint-disable @next/next/no-img-element */
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const facts = [
@@ -145,10 +145,12 @@ function TiltCard({
                     <div className="absolute inset-0 bg-gradient-to-br from-brand-pink/15 to-brand-purple/15 flex items-center justify-center text-3xl">
                       {icon}
                     </div>
-                    <img
+                    <Image
                       src={src}
                       alt={`${label} ${i + 1}`}
-                      className="absolute inset-0 w-full h-full object-cover z-10"
+                      fill
+                      sizes="(max-width: 767px) 50vw, 288px"
+                      className="object-cover z-10"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = "none";
                       }}

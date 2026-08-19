@@ -1,7 +1,7 @@
 "use client";
 import { useState, useMemo } from "react";
-/* eslint-disable @next/next/no-img-element */
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GradientBlob } from "@/components/ui/GradientBlob";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -127,10 +127,12 @@ export function GallerySection() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-pink/20 to-brand-purple/20 flex items-center justify-center text-3xl">
                   </div>
-                  <img
+                  <Image
                     src={photo.src}
                     alt={photo.alt}
-                    className="absolute inset-0 w-full h-full object-cover z-10"
+                    fill
+                    sizes="(max-width: 767px) 50vw, (max-width: 1023px) 33vw, 288px"
+                    className="object-cover z-10"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                   />
                   <div className="hidden">
@@ -173,10 +175,12 @@ export function GallerySection() {
                 <div className="absolute inset-0 bg-brand-dark flex items-center justify-center text-6xl">
                   📸
                 </div>
-                <img
+                <Image
                   src={allPhotos[selectedFlat].photo.src}
                   alt={allPhotos[selectedFlat].photo.alt}
-                  className="absolute inset-0 w-full h-full object-contain z-10"
+                  fill
+                  sizes="(max-width: 1023px) 100vw, 896px"
+                  className="object-contain z-10"
                   onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
                 />
                 <div className="hidden">
